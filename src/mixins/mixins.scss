@@ -69,8 +69,11 @@
  -------------------------- */
 @mixin b($block) {
   $B: $namespace+'-'+$block !global;
-
+  $B2: $namespace2+'-'+$block !global;
   .#{$B} {
+    @content;
+  }
+  .#{$B2} {
     @content;
   }
 }
