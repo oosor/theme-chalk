@@ -1,0 +1,21 @@
+image: node:alpine
+
+before_script:
+  - npm install
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - deploy
+
+publish:
+   stage: deploy
+   only:
+     - master
+     - tags
+   script:
+     - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+     - echo 'unsafe-perm = true' >> ~/.npmrc
+     - npm publish --registry https://registry.npmjs.org
