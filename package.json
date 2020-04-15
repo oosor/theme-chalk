@@ -1,6 +1,6 @@
 {
   "name": "@shadoll/viola",
-  "version": "2.13.1p",
+  "version": "2.13.1-p",
   "description": "Patch Element component chalk theme.",
   "main": "lib/index.css",
   "style": "lib/index.css",
@@ -31,5 +31,8 @@
     "gulp-sass": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "directories": {
+    "lib": "lib"
+  }
 }
