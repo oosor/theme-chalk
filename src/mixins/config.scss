@@ -1,5 +1,6 @@
-$namespace: 'el' !default;
-$namespace2: 'el' !default;
+$viola-core: '' !default;
+$namespace: ' .el' !default;
+$namespace2: '.el' !default;
 $element-separator: '__';
 $modifier-separator: '--';
 $state-prefix: 'is-';

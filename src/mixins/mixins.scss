@@ -68,8 +68,8 @@
 /* BEM
  -------------------------- */
 @mixin b($block) {
-  $B: $namespace+'-'+$block !global;
-  $B2: $namespace2+'-'+$block !global;
+  $B: $viola-core+$namespace+'-'+$block !global;
+  $B2: $viola-core+$namespace2+'-'+$block !global;
   .#{$B} {
     @content;
   }
@@ -81,9 +81,11 @@
 @mixin e($element) {
   $E: $element !global;
   $selector: &;
-  $currentSelector: "";
+  $currentSelector: "."+$viola-core+' ';
+  $currentSelector-deep: "."+$viola-core;
   @each $unit in $element {
     $currentSelector: #{$currentSelector + "." + $B + $element-separator + $unit + ","};
+    $currentSelector-deep: #{$currentSelector-deep + "." + $B + $element-separator + $unit + ","};
   }
 
   @if hitAllSpecialNestRule($selector) {
@@ -101,17 +103,41 @@
       }
     }
   }
+
+  @if hitAllSpecialNestRule($selector) {
+    @at-root {
+      #{$selector} {
+        #{$currentSelector-deep} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @at-root {
+      #{$currentSelector-deep} {
+        @content;
+      }
+    }
+  }
 }
 
 @mixin m($modifier) {
   $selector: &;
-  $currentSelector: "";
+  $currentSelector: "."+$viola-core+' ';
+  $currentSelector-deep: "."+$viola-core;
   @each $unit in $modifier {
     $currentSelector: #{$currentSelector + & + $modifier-separator + $unit + ","};
+    $currentSelector-deep: #{$currentSelector-deep + & + $modifier-separator + $unit + ","};
   }
 
   @at-root {
     #{$currentSelector} {
+      @content;
+    }
+  }
+
+  @at-root {
+    #{$currentSelector-deep} {
       @content;
     }
   }

@@ -15,11 +15,8 @@ npm i @shadoll/viola -S
 ```scss
 // sass | scss
 
-$core-class: fk-tomato;
-
 // mix
-$namespace: $core-class + ' .el';
-$namespace2: $core-class + '.el';
+$viola-core: 'fk-tomato'; // без точки
 
 // optional
 $--color-primary: violet;
