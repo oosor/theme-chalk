@@ -17,6 +17,8 @@ npm i @shadoll/viola -S
 
 // mix
 $viola-core: 'fk-tomato'; // без точки
+$namespace: #{$viola-core+' .el'};
+$namespace2: #{$viola-core+'.el'};
 
 // optional
 $--color-primary: violet;
