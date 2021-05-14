@@ -1,6 +1,6 @@
-$viola-core: '' !default;
-$namespace: ' .el' !default;
-$namespace2: '.el' !default;
+$viola-core: 'fk' !default;
+$namespace: 'fk .el' !default;
+$namespace2: 'fk.el' !default;
 $element-separator: '__';
 $modifier-separator: '--';
 $state-prefix: 'is-';
